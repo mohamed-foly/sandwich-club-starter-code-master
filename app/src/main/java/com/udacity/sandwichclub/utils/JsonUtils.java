@@ -25,7 +25,7 @@ public class JsonUtils {
             List<String> ingredients =JsonToList( jsonObject.getJSONArray("ingredients"));
             return new Sandwich(mainName,alsoKnownAs,placeOfOrigin,description,image,ingredients);
         }catch (Exception ex){
-            Log.e("Data","Exception : "+ex.getMessage());
+            Log.e("Exception",ex.getMessage());
             return null;
         }
     }
