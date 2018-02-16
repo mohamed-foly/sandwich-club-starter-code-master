@@ -19,19 +19,19 @@ public class JsonUtils {
             JSONObject name = jsonObject.getJSONObject("name");
             String mainName = name.getString("mainName");
 
-            List<String> alsoKnownAs = JosnTOArray(name.getJSONArray("alsoKnownAs"));
+            List<String> alsoKnownAs = JsonTOArray(name.getJSONArray("alsoKnownAs"));
 
             String placeOfOrigin=jsonObject.getString("placeOfOrigin");
             String description=jsonObject.getString("description");
             String image=jsonObject.getString("image");
-            List<String> ingredients =JosnTOArray( jsonObject.getJSONArray("ingredients"));
+            List<String> ingredients =JsonTOArray( jsonObject.getJSONArray("ingredients"));
             return new Sandwich(mainName,alsoKnownAs,placeOfOrigin,description,image,ingredients);
         }catch (Exception ex){
-            Log.e("Data","EXception : "+ex.getMessage());
+            Log.e("Data","Exception : "+ex.getMessage());
             return null;
         }
     }
-    public static ArrayList<String> JosnTOArray(JSONArray jsonArray) throws JSONException {
+  private static ArrayList<String> JsonTOArray(JSONArray jsonArray) throws JSONException {
         ArrayList<String> temp = new ArrayList<>();
         int ingredientsLength = jsonArray.length();
         if (ingredientsLength > 0) {
